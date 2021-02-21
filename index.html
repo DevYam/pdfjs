@@ -3,49 +3,47 @@
 <head>
     <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.943/build/pdf.min.js"></script>
     <script src="index.js"></script>
+
+    <style>
+        #loader {
+            border: 12px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 12px solid #00b2ff;
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .center {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+
 </head>
 <body>
 <!--<canvas id="my_canvas"></canvas>-->
+<div id="loader" class="center"></div>
 <script>
-
-    /**
-     * This is a minimal implementation of pdfjs
-     * The newer versions require pdf worker options
-     * @type {number}
-     */
-
-// pdfjsLib.getDocument('./pdf.pdf').then(doc => {
-//     console.log(doc._pdfInfo.numPages);
-//
-//     doc.getPage(2).then(page => {
-//         let myCanvas = document.getElementById("my_canvas");
-//         let context = myCanvas.getContext('2d');
-//
-//         let viewPort = page.getViewport(2);
-//         myCanvas.width = viewPort.width;
-//         myCanvas.height = viewPort.height;
-//
-//         page.render({
-//             canvasContext:context,
-//             viewport: viewPort
-//         });
-//
-//     });
-// });
-
-
-//=======================================================
-
-
-
-
-
-
-
-
-
+        document.onreadystatechange = function() {
+            document.querySelector(
+                "body").style.visibility = "hidden";
+            document.querySelector(
+                "#loader").style.visibility = "visible";
+        };
 
 
 </script>
+
 </body>
 </html>

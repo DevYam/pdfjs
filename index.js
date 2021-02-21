@@ -4,7 +4,7 @@ var numPages = 0;
 var thePDF = null;
 
 //This is where you start
-pdfjsLib.getDocument("https://github.com/DevYam/pdfjs/blob/master/pdf").then(function(pdf) {
+pdfjsLib.getDocument("pdf.pdf").then(function(pdf) {
 
     //Set PDFJS global object (so we can easily access in our page functions
     thePDF = pdf;
@@ -20,6 +20,12 @@ pdfjsLib.getDocument("https://github.com/DevYam/pdfjs/blob/master/pdf").then(fun
 
 function handlePages(page)
 {
+    //Hiding the Spinner
+    document.querySelector(
+        "#loader").style.display = "none";
+    document.querySelector(
+        "body").style.visibility = "visible";
+
     //This gives us the page's dimensions at full scale
     var viewport = page.getViewport( 2 );
 
