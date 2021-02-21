@@ -4,7 +4,7 @@ var numPages = 0;
 var thePDF = null;
 
 //This is where you start
-pdfjsLib.getDocument("./pdf").then(function(pdf) {
+pdfjsLib.getDocument("pdf.pdf").then(function(pdf) {
 
     //Set PDFJS global object (so we can easily access in our page functions
     thePDF = pdf;
